@@ -54,7 +54,7 @@ jobs:
               run:  |
                   BRANCH='${{ github.event.workflow_run.head_branch }}'
                   CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"
-                  echo $CLEAN_BRANCH && echo ${{ secrets.CROWDIN_API_KEY }}; echo $CLEAN_BRANCH; echo ${{ secrets.CROWDIN_API_KEY }}
+                  crowdin upload sources -b ${{ github.event.workflow_run.head_branch }} -T "test"; crowdin upload translations -b ${{ github.event.workflow_run.head_branch }} -T "test"
             - name: Slack Notification 📣
               uses: 8398a7/action-slack@v3
               with:
