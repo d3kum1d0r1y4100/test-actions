@@ -33,7 +33,6 @@ jobs:
               run: |
                   BRANCH='${{ github.event.workflow_run.head_branch }}'
                   CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"
-                #   echo  ${{ github.event.workflow_run.head_branch }} && echo ${{ secrets.CROWDIN_API_KEY }} && echo ${{ github.event.workflow_run.head_branch }} && echo ${{ secrets.CROWDIN_API_KEY }}
                   if git diff --exit-code; then
                     echo "No new translation data to commit"
                   else
