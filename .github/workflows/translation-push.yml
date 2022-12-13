@@ -12,9 +12,8 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: 'Source: [${{github.event.workflow_run.head_repository.full_name}}/${{ github.event.workflow_run.head_branch }}]'
-              env:
-                BRANCH: ${{ github.event.workflow_run.head_branch }}
               run: |
+                BRANCH= '${{ github.event.workflow_run.head_branch }}'
                 CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"
                 echo "after cleaning"
                 echo $CLEAN_BRANCH
