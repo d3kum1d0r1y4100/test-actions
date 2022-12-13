@@ -13,6 +13,8 @@ jobs:
         steps:
             - name: 'Source: [${{github.event.workflow_run.head_repository.full_name}}/${{ github.event.workflow_run.head_branch }}]'
               run: |
+                BRANCH='${{ github.event.workflow_run.head_branch }}'
+                CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"
                 BRANCH= '${{ github.event.workflow_run.head_branch }}'
                 CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"
                 echo "after cleaning"
