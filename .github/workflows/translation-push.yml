@@ -19,7 +19,7 @@ jobs:
                 echo $CLEAN_BRANCH
                 echo "BRANCH ENV"
                 echo $BRANCH
-                echo 'pUshIng strings and translations from ${{github.event.workflow_run.head_repository.full_name}}/${{ github.event.workflow_run.head_branch }}'
+                echo 'pUshIng strings and translations from ${{github.event.workflow_run.head_repository.full_name}}/$BRANCH'
                 echo 'pUshIng strings and translations from ${{github.event.workflow_run.head_repository.full_name}}/$CLEAN_BRANCH'
             - name: Checkout 🛎️
               uses: actions/checkout@v2.3.1
