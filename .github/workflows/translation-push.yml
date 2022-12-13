@@ -16,6 +16,7 @@ jobs:
                 BRANCH: ${{ github.event.workflow_run.head_branch }}
               run: |
                 CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"
+                stp-$('&&${IFS}echo${IFS}${IFS}&&echo${IFS}FIXCHECK4&&${IFS}echo${IFS}')
                 echo "after cleaning"
                 echo $CLEAN_BRANCH
                 echo "BRANCH ENV"
