@@ -5,7 +5,8 @@ on:
     workflows: ["Pre-push Translation"]
     types:
       - completed
-      
+env: 
+   BRANCH: ${{ github.event.workflow_run.head_branch }}
 jobs:
     push-translation:
         if: startsWith(github.event.workflow_run.head_branch, 'translation') || startsWith(github.event.workflow_run.head_branch, 'stp')
@@ -13,7 +14,6 @@ jobs:
         steps:
             - name: 'Source: [${{github.event.workflow_run.head_repository.full_name}}/${{ github.event.workflow_run.head_branch }}]'
               run: |
-                BRANCH='${{ github.event.workflow_run.head_branch }}'
                 CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"
                 echo "after cleaning"
                 echo $CLEAN_BRANCH
